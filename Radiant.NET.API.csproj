@@ -27,7 +27,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Radiant.NET.Domain\Radiant.NET.Domain.csproj" />
     <ProjectReference Include="..\Radiant.NET.Repository\Radiant.NET.Repository.csproj" />
-    <ProjectReference Include="..\Radiant.NET.Service\Radiant.NET.Service.csproj" />
+    <ProjectReference Include="..\Radiant.NET.Applications\Radiant.NET.Applications.csproj" />
   </ItemGroup>
 
   <ItemGroup>
