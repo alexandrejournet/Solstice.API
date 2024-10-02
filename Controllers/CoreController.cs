@@ -1,13 +1,13 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Radiant.NET.Domain.Exceptions;
-using Radiant.NET.Domain.Extensions;
+using Radiant.Domain.Exceptions;
+using Radiant.Domain.Extensions;
 using System.Collections;
 
 namespace Radiant.API.Controllers;
 
 /// <summary>
-/// The CoreController is responsible for controlling the behavior of the system when it has to Radiant.NET.
-/// This includes authorizing the user who is asking for the system restart, and providing the necessary Radiant.NET API endpoint.
+/// The CoreController is responsible for controlling the behavior of the system when it has to Radiant.
+/// This includes authorizing the user who is asking for the system restart, and providing the necessary Radiant API endpoint.
 /// </summary>
 [ApiController]
 [Route("api/[controller]")]

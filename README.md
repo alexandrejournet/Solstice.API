@@ -1,6 +1,6 @@
-# Radiant.NET.API
+# Radiant.API
 
-This is the API package for the Radiant.NET framework.
+This is the API package for the Radiant framework.
 
 ## Getting Started
 
@@ -18,7 +18,7 @@ What things you need to install the software and how to install them:
 A step by step series of examples that tell you how to get a development environment running:
 
 1. Clone the repository
-2. Navigate to the Radiant.NET.API directory
+2. Navigate to the Radiant.API directory
 3. Run `dotnet restore` to restore the project dependencies
 4. Run `dotnet build` to build the project
 

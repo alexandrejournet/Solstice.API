@@ -25,9 +25,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Radiant.NET.Domain\Radiant.NET.Domain.csproj" />
-    <ProjectReference Include="..\Radiant.NET.Repository\Radiant.NET.Repository.csproj" />
-    <ProjectReference Include="..\Radiant.NET.Applications\Radiant.NET.Applications.csproj" />
+    <ProjectReference Include="..\Radiant.Domain\Radiant.Domain.csproj" />
+    <ProjectReference Include="..\Radiant.Repository\Radiant.Repository.csproj" />
+    <ProjectReference Include="..\Radiant.Applications\Radiant.Applications.csproj" />
   </ItemGroup>
 
   <ItemGroup>
