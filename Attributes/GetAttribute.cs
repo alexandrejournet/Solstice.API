@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace Radiant.NET.API.Attributes;
+namespace Radiant.API.Attributes;
 
 /// <summary>
 /// GetAttribute class inherits from the HttpGetAttribute class in Microsoft.AspNetCore.Mvc. It works as a HTTP GET method attribute

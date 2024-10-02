@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace Radiant.NET.API.Attributes;
+namespace Radiant.API.Attributes;
 
 /// <summary>
 /// DeleteAttribute is a class that extends the HttpDeleteAttribute class in the Microsoft.AspNetCore.Mvc package.

@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace Radiant.NET.API.Attributes;
+namespace Radiant.API.Attributes;
 
 /// <summary>
 /// The 'PostAttribute' class is a decorator extending from the 'HttpPostAttribute' class in the Microsoft ASP.NET Core MVC framework.

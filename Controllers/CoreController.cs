@@ -3,7 +3,7 @@ using Radiant.NET.Domain.Exceptions;
 using Radiant.NET.Domain.Extensions;
 using System.Collections;
 
-namespace Radiant.NET.API.Controllers;
+namespace Radiant.API.Controllers;
 
 /// <summary>
 /// The CoreController is responsible for controlling the behavior of the system when it has to Radiant.NET.
