@@ -5,7 +5,7 @@ using System.Reflection;
 using System.Runtime.Loader;
 using System.Threading.Tasks;
 
-namespace Radiant.API.Scanning
+namespace Solstice.API.Scanning
 {
     public class CoreAssemblyScanning : AssemblyLoadContext
     {

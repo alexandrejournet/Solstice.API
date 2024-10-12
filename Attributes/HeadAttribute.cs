@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace Radiant.API.Attributes;
+namespace Solstice.API.Attributes;
 
 /// <summary>
 /// Represents an attribute that specifies that an action supports the HTTP HEAD method.

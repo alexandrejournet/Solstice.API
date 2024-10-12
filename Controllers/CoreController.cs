@@ -1,12 +1,12 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Radiant.Domain.Exceptions;
-using Radiant.Domain.Extensions;
+using Solstice.Domain.Exceptions;
+using Solstice.Domain.Extensions;
 using System.Collections;
 
-namespace Radiant.API.Controllers;
+namespace Solstice.API.Controllers;
 
 /// <summary>
-/// The CoreController is responsible for controlling the behavior of the system when it has to Radiant.
+/// The CoreController is responsible for controlling the behavior of the system when it has to Solstice.
 /// This includes authorizing the user who is asking for the system restart, and providing the necessary Radiant API endpoint.
 /// </summary>
 [ApiController]

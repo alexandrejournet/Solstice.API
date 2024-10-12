@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Radiant.API.Injections;
+namespace Solstice.API.Injections;
 
 /// <summary>
 /// The CoreInjections class is a static class containing methods related to core service injections in an ASP.NET Core application.

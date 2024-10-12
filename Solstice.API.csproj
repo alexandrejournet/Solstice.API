@@ -16,6 +16,7 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Version>${VersionPrefix}-${VersionSuffix}</Version>
     <LangVersion>latest</LangVersion>
+    <RootNamespace>Solstice.API</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
@@ -25,9 +26,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Radiant.Domain\Radiant.Domain.csproj" />
-    <ProjectReference Include="..\Radiant.Repository\Radiant.Repository.csproj" />
-    <ProjectReference Include="..\Radiant.Applications\Radiant.Applications.csproj" />
+    <ProjectReference Include="..\Solstice.Domain\Solstice.Domain.csproj" />
+    <ProjectReference Include="..\Solstice.Repository\Solstice.Repository.csproj" />
+    <ProjectReference Include="..\Solstice.Applications\Solstice.Applications.csproj" />
   </ItemGroup>
 
   <ItemGroup>

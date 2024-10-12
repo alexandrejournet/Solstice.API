@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace Radiant.API.Attributes;
+namespace Solstice.API.Attributes;
 
 /// <summary>
 /// The PatchAttribute class represents a custom attribute to indicate that an action method should handle HTTP PATCH requests.

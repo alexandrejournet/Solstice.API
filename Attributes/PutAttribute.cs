@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace Radiant.API.Attributes;
+namespace Solstice.API.Attributes;
 
 /// <summary>
 /// The PutAttribute class inherits from the HttpPutAttribute class and represents an attribute that is used to indicate the HTTP PUT
