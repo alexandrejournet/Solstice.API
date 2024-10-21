@@ -1,5 +1,6 @@
 using System.Reflection;
 using System.Runtime.Loader;
+using Microsoft.AspNetCore.Builder;
 
 namespace Solstice.API.Scanning;
 
@@ -77,5 +78,18 @@ public class CoreAssemblyScanning : AssemblyLoadContext
                 // ignored
             }
         }
+    }
+}
+
+public static class CoreAssemblyScanningExtensions
+{
+    public static void ScanAndLoadAssemblies(this WebApplicationBuilder builder)
+    {
+        new CoreAssemblyScanning().ScanAndLoadAssemblies();
+    }
+    
+    public static void ScanAndLoadAssemblies(this WebApplicationBuilder builder, Assembly assembly)
+    {
+        new CoreAssemblyScanning(assembly).ScanAndLoadAssemblies();
     }
 }
