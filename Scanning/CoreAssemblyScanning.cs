@@ -7,6 +7,16 @@ public class CoreAssemblyScanning : AssemblyLoadContext
 {
     private readonly string _directoryPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) ?? string.Empty;
 
+    public static void Scan(string directoryPath)
+    {
+        new CoreAssemblyScanning(directoryPath).ScanAndLoadAssemblies();
+    }
+    
+    public static void Scan(Assembly assembly)
+    {
+        new CoreAssemblyScanning(Path.GetDirectoryName(assembly.Location)).ScanAndLoadAssemblies();
+    }
+    
     public CoreAssemblyScanning()
     {
     }
