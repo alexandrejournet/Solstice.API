@@ -35,7 +35,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Solstice.Domain\Solstice.Domain.csproj" />
-    <ProjectReference Include="..\Solstice.Repository\Solstice.Repository.csproj" />
+    <ProjectReference Include="..\Solstice.Infrastructure\Solstice.Infrastructure.csproj" />
     <ProjectReference Include="..\Solstice.Applications\Solstice.Applications.csproj" />
   </ItemGroup>
 

@@ -1,77 +1,71 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
 using System.Runtime.Loader;
-using System.Threading.Tasks;
 
-namespace Solstice.API.Scanning
+namespace Solstice.API.Scanning;
+
+public class CoreAssemblyScanning : AssemblyLoadContext
 {
-    public class CoreAssemblyScanning : AssemblyLoadContext
+    private readonly string _directoryPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) ?? string.Empty;
+
+    public CoreAssemblyScanning()
     {
-        private readonly string _directoryPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+    }
 
-        public CoreAssemblyScanning()
-        {
-        }
+    public CoreAssemblyScanning(Assembly assembly)
+    {
+        _directoryPath = Path.GetDirectoryName(assembly.Location) ?? string.Empty;
+    }
         
-        public CoreAssemblyScanning(string directoryPath)
-        {
-            _directoryPath = directoryPath;
-        }
+    public CoreAssemblyScanning(string directoryPath)
+    {
+        _directoryPath = directoryPath;
+    }
         
-        public void ScanAndLoadAssemblies()
-        {
-            LoadAllAssemblies();
-            LoadAssembliesIntoCurrentAppDomain();
-        }
+    public void ScanAndLoadAssemblies()
+    {
+        LoadAllAssemblies();
+        LoadAssembliesIntoCurrentAppDomain();
+    }
 
-        private void LoadAllAssemblies()
-        {
-            var assemblyFiles = Directory.GetFiles(_directoryPath, "*.dll");
+    private void LoadAllAssemblies()
+    {
+        if (string.Empty.Equals(_directoryPath)) return;
+        var assemblyFiles = Directory.GetFiles(_directoryPath, "*.dll");
 
-            foreach (var assemblyFile in assemblyFiles)
+        foreach (var assemblyFile in assemblyFiles)
+        {
+            try
             {
-                try
-                {
-                    LoadFromAssemblyPath(assemblyFile);
-                    Console.WriteLine($"Loaded {assemblyFile}");
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine($"Failed to load {assemblyFile}: {ex.Message}");
-                }
+                LoadFromAssemblyPath(assemblyFile);
+            }
+            catch (Exception)
+            {
+                // ignored
             }
         }
+    }
 
-        protected override Assembly Load(AssemblyName assemblyName)
+    protected override Assembly Load(AssemblyName assemblyName)
+    {
+        string assemblyPath = Path.Combine(_directoryPath, $"{assemblyName.Name}.dll");
+        return (File.Exists(assemblyPath) ? LoadFromAssemblyPath(assemblyPath) : null) ?? throw new InvalidOperationException();
+    }
+    private void LoadAssembliesIntoCurrentAppDomain()
+    {
+        foreach (var assembly in Assemblies)
         {
-            string assemblyPath = Path.Combine(_directoryPath, $"{assemblyName.Name}.dll");
-            if (File.Exists(assemblyPath))
+            try
             {
-                return LoadFromAssemblyPath(assemblyPath);
+                // Get the assembly name
+                AssemblyName assemblyName = assembly.GetName();
+            
+                // Load the assembly into the current AppDomain
+                AppDomain.CurrentDomain.Load(assemblyName);
             }
-            return null;
-        }
-        private void LoadAssembliesIntoCurrentAppDomain()
-        {
-            
-                foreach (var assembly in Assemblies)
-                {
-                    try
-                    {
-                        // Get the assembly name
-                        AssemblyName assemblyName = assembly.GetName();
-                
-                        // Load the assembly into the current AppDomain
-                        Assembly loadedAssembly = AppDomain.CurrentDomain.Load(assemblyName);
-                    }
-                    catch (Exception ex)
-                    {
-                    }
-                }
-                
-            
+            catch (Exception)
+            {
+                // ignored
+            }
         }
     }
 }
