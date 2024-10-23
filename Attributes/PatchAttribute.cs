@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System.Diagnostics.CodeAnalysis;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Solstice.API.Attributes;
 
@@ -20,7 +21,7 @@ public class PatchAttribute : HttpPatchAttribute
     /// The template parameter is the route template associated with this attribute.
     /// </summary>
     /// <param name="template">The string that contains the template to associate with this attribute.</param>
-    public PatchAttribute(string template) : base(template)
+    public PatchAttribute([StringSyntax("Route")] string template) : base(template)
     {
     }
 }

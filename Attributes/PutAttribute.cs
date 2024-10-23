@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System.Diagnostics.CodeAnalysis;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Solstice.API.Attributes;
 
@@ -20,7 +21,7 @@ public class PutAttribute : HttpPutAttribute
     /// the template for route data.
     /// </summary>
     /// <param name="template"> The route template. This is a pattern against which the URL path is matched. </param>
-    public PutAttribute(string template) : base(template)
+    public PutAttribute([StringSyntax("Route")] string template) : base(template)
     {
     }
 }

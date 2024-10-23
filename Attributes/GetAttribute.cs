@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System.Diagnostics.CodeAnalysis;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Solstice.API.Attributes;
 
@@ -19,7 +20,7 @@ public class GetAttribute : HttpGetAttribute
     {
     }
 
-    public GetAttribute(string template) : base(template)
+    public GetAttribute([StringSyntax("Route")] string template) : base(template)
     {
     }
 }

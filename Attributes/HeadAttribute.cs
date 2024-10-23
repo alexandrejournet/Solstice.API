@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System.Diagnostics.CodeAnalysis;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Solstice.API.Attributes;
 
@@ -11,7 +12,7 @@ public class HeadAttribute : HttpHeadAttribute
     {
     }
 
-    public HeadAttribute(string template) : base(template)
+    public HeadAttribute([StringSyntax("Route")] string template) : base(template)
     {
     }
 }

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System.Diagnostics.CodeAnalysis;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Solstice.API.Attributes;
 
@@ -19,7 +20,7 @@ public class DeleteAttribute : HttpDeleteAttribute
     /// Constructor that creates a new instance of DeleteAttribute with a route template.
     /// </summary>
     /// <param name="template">A string that specifies the URI route template for this attribute.</param>
-    public DeleteAttribute(string template) : base(template)
+    public DeleteAttribute([StringSyntax("Route")] string template) : base(template)
     {
     }
 }
