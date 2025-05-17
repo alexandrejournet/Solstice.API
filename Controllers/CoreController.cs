@@ -7,7 +7,7 @@ namespace Solstice.API.Controllers;
 
 /// <summary>
 /// The CoreController is responsible for controlling the behavior of the system when it has to Solstice.
-/// This includes authorizing the user who is asking for the system restart, and providing the necessary Radiant API endpoint.
+/// This includes authorizing the user who is asking for the system restart, and providing the necessary Solstice API endpoint.
 /// </summary>
 [ApiController]
 [Route("api/[controller]")]

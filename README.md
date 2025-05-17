@@ -1,6 +1,6 @@
 # Solstice.API
 
-This is the API package for the Radiant framework.
+This is the API package for the Solstice framework.
 
 ## Getting Started
 
