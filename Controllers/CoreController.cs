@@ -13,10 +13,10 @@ namespace Solstice.API.Controllers;
 [Route("api/[controller]")]
 public class CoreController : ControllerBase
 {
-    public static ActionResult OkOrNotFound<T>(T nullable)
+    public static ActionResult OkOrNotFound<T>(T result)
         where T : class
     {
-        if (nullable == null)
+        if (result == null)
         {
             return new NotFoundObjectResult(CoreExceptionEnum.HTTP_404.Get());
         }
@@ -24,20 +24,20 @@ public class CoreController : ControllerBase
         // Check if T is a list or implements IEnumerable<T>
         if (typeof(IEnumerable).IsAssignableFrom(typeof(T)))
         {
-            var enumerable = (IEnumerable)nullable;
+            var enumerable = (IEnumerable)result;
             if (!enumerable.Cast<object>().IsNotNullOrEmpty())
             {
                 return new NotFoundObjectResult(CoreExceptionEnum.HTTP_404.Get());
             }
         }
 
-        return new OkObjectResult(nullable);
+        return new OkObjectResult(result);
     }
 
-    public static ActionResult OkOrNoContent<T>(T nullable)
+    public static ActionResult OkOrNoContent<T>(T result)
         where T : class
     {
-        if (nullable == null)
+        if (result == null)
         {
             return new NoContentResult();
         }
@@ -45,13 +45,13 @@ public class CoreController : ControllerBase
         // Check if T is a list or implements IEnumerable<T>
         if (typeof(IEnumerable).IsAssignableFrom(typeof(T)))
         {
-            var enumerable = (IEnumerable)nullable;
+            var enumerable = (IEnumerable)result;
             if (!enumerable.Cast<object>().IsNotNullOrEmpty())
             {
                 return new NoContentResult();
             }
         }
 
-        return new OkObjectResult(nullable);
+        return new OkObjectResult(result);
     }
 }
